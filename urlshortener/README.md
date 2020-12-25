@@ -94,6 +94,8 @@ $ ng serve --host
 Web application: http://localhost:4200/
 
 #### With docker and docker-compose installed
+(**Limitation**: *ERROR: Service 'xxxxxx' failed to build : toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit*)
+
 ```
 $ cd urlshortener 
 $ docker-compose up --build
