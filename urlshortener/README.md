@@ -56,7 +56,8 @@ Created maven project followed by Spring MVC guidelines.
 ```
 $ git clone https://github.com/kumarbaburaavi/tutorial.git
 ```
-#### Run urlshortener ReST service with maven build tool
+#### Run urlshortener ReST service with maven build tool 
+Application run with DEV profile which is default and it connects with H2 in-memory database.
 ```
 $ cd urlshortener
 $ mvn clean test                         # Run the testcases and code coverage
@@ -93,7 +94,8 @@ $ ng serve --host
 ```
 Web application: http://localhost:4200/
 
-#### With docker and docker-compose installed
+#### With docker and docker-compose installed 
+Here Application run with PROD profile and it connects to postgres datase.
 (**Limitation**: *ERROR: Service 'xxxxxx' failed to build : toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit*)
 
 ```

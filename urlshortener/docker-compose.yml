@@ -1,13 +1,11 @@
 version: '3'
 volumes:
    data:
-   m2:
 services:
   database:
     image: postgres:11.3
-    restart: on-failure    
     environment:
-      - POSTGRES_DB=littleurl
+      - POSTGRES_DB=urlshortener
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
