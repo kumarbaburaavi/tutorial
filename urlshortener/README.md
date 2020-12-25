@@ -43,6 +43,7 @@ Created maven project followed by Spring MVC guidelines.
 ```
 #### Technology stack
 * [Spring Boot](http://spring.io/projects/spring-boot) for creating the RESTful Web Services
+* [NPM](https://docs.npmjs.com/about-npm) the package manager for the Node JavaScript platform
 * [Angular JS](https://docs.angularjs.org) for building web application.
 * [MockMVC](https://spring.io/guides/gs/testing-web/) for testing the Web Layer
 * [Mockito](https://site.mockito.org/) for testing the Services Layer
@@ -50,3 +51,60 @@ Created maven project followed by Spring MVC guidelines.
 * [Maven](https://maven.apache.org/) for managing the project's build
 * [Docker](https://www.docker.com/) for building and managing the application distribution using containers
 
+## Install
+#### Download the repository
+```
+$ git clone https://github.com/kumarbaburaavi/tutorial.git
+```
+#### Run urlshortener ReST service with maven build tool
+```
+$ cd urlshortener
+$ mvn clean test                         # Run the testcases and code coverage
+$ mvn clean package -DskipTests=true    # Compile and Build the package
+$ mvn spring-boot:run                    # Run the spring boot application.
+
+Note: All the generated artifcats shall be found in target folder 
+target/
+|-- classes
+|   |-- META-INF
+|   |-- application.properties
+|   `-- com
+|-- generated-sources
+|   `-- annotations
+|-- generated-test-sources
+|   `-- test-annotations
+|-- jacoco.exec
+|-- maven-status
+|   `-- maven-compiler-plugin
+|-- site
+|   `-- jacoco
+|-- surefire-reports
+`-- test-classes
+    `-- com
+```
+API Reference for Developer : http://localhost:8080/swagger-ui.html
+
+#### Run Angular JS Web application (npm installed)
+```
+$ cd urlshortener/angular
+$ npm install 
+$ npm install -g @angular/cli@6.0.8 
+$ ng serve --host
+```
+Web application: http://localhost:4200/
+
+#### With docker and docker-compose installed
+```
+$ cd urlshortener 
+$ docker-compose up --build
+```
+## Usage
+
+Request Method | URI | Body (JSON) | Description |  
+:---: | :--- | :---: | :--- |
+GET | http://localhost:8080/shorten-url/api/v1/geturls | - | Get all urls | 
+GET | http://localhost:8080/shorten-url/api/v1/{code} | - | Find long url and redirect | 
+GET | http://localhost:8080/shorten-url/api/v1/{code}/url | - | Find and return long url | 
+POST | http://localhost:8080/shorten-url/api/v1/addurl | { "url": "[http...]" } | create url and return its shorten url in response headers | 
+PUT | http://localhost:8080/shorten-url/api/v1/{code} |  { "url": "[http...]" } | Update url | 
+DELETE | http://localhost:8080/shorten-url/api/v1/{code} | - | Remove url | 
