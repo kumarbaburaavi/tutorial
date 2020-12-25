@@ -1,0 +1,18 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" urlshortener="ngForm">
+      <div class="form-group">
+        <label for="code">Short Code (Optional)</label>
+        <input type="text" [(ngModel)]="urlshortener.code" class="form-control" id="code" name="code" placeholder="Enter your short url"
+          required #name="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="url">Actual URL:</label>
+        <input type="text" [(ngModel)]="urlshortener.url" class="form-control" id="url" name="url" placeholder="Enter your URL address"
+          required #email="ngModel">
+        <div [hidden]="!email.pristine" class="alert alert-danger">URL is required</div>
+      </div>
+      <button type="submit" [disabled]="!urlshortenerForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

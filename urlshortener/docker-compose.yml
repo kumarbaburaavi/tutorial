@@ -1,0 +1,31 @@
+version: '3'
+volumes:
+   data:
+   m2:
+services:
+  database:
+    image: postgres:11.3
+    restart: on-failure    
+    environment:
+      - POSTGRES_DB=littleurl
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - data:/var/lib/postgresql/data
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.spring
+    image: url-shortener-service:1.1
+    restart: on-failure
+    ports:
+      - 8080:8080
+  angular-view:
+    image: url-shortener-view:1.1
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: ./Dockerfile.angular
+    ports:
+      - 4200:4200
+
