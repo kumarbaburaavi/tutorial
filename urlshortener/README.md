@@ -102,13 +102,13 @@ Here Application run with PROD profile and it connects to postgres datase.
 $ cd urlshortener 
 $ docker-compose up --build
 ```
-## Usage
+## ReST API Usage
 
 Request Method | URI | Body (JSON) | Description |  
 :---: | :--- | :---: | :--- |
-GET | http://localhost:8080/shorten-url/api/v1/geturls | - | Get all urls | 
-GET | http://localhost:8080/shorten-url/api/v1/{code} | - | Find long url and redirect | 
+GET | http://localhost:8080/shorten-url/api/v1/geturls | - | Find all the long urls with short codes. | 
+GET | http://localhost:8080/shorten-url/api/v1/{code} | - | Find and redirect the url| 
 GET | http://localhost:8080/shorten-url/api/v1/{code}/url | - | Find and return long url | 
-POST | http://localhost:8080/shorten-url/api/v1/addurl | { "url": "[http...]" } | create url and return its shorten url in response headers | 
-PUT | http://localhost:8080/shorten-url/api/v1/{code} |  { "url": "[http...]" } | Update url | 
-DELETE | http://localhost:8080/shorten-url/api/v1/{code} | - | Remove url | 
+POST | http://localhost:8080/shorten-url/api/v1/addurl | { "url": "[http...]" } | Create url and return its shorten url in a response headers | 
+PUT | http://localhost:8080/shorten-url/api/v1/{code} |  { "url": "[http...]" } | Update url with shorten code | 
+DELETE | http://localhost:8080/shorten-url/api/v1/{code} | - | Remove url based on the short code | 
